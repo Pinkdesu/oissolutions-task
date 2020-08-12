@@ -18,9 +18,22 @@
     }
 }
 
-@mixin dodger-blue($fontSize: 12px, $fontWeight: 400) {
-    background-color: #1E90FF;
-    color: #fff;
+@mixin text-style($fontSize: 14px, $fontWeight: 400, $color: #000) {
+    color: $color;
     font-size: $fontSize;
     font-weight: $fontWeight;
+}
+
+.dodger-blue {
+    background-color: #1E90FF;
+}
+
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

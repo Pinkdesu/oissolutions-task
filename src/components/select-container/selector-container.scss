@@ -1,0 +1,16 @@
+  @import '../../module';
+
+  .modal-form__content__selector-container {
+      padding: 5px 10px 15px 10px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+      & legend {
+          @include text-style();
+          padding: 0 5px;
+      }
+
+      .modal-form__content__selector-container__selector {
+          width: 100%;
+          padding: 5px;
+      }
+  }

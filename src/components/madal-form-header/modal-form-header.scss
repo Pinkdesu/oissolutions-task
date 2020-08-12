@@ -2,7 +2,8 @@
 
   .modal-form__header {
       @include flex-constructor(row nowrap, space-between, center);
-      @include dodger-blue(16px, 600);
+      @extend .dodger-blue,
+      .unselectable;
       border-radius: 5px 5px 0 0;
       padding: 15px 10px;
 
@@ -11,8 +12,7 @@
       }
 
       .modal-form__header__text {
-          font-size: inherit;
-          font-weight: inherit;
+          @include text-style(16px, 700, #fff);
           margin: 0;
           padding: 0;
       }
