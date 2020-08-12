@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Portal from "./utils/portal";
+import ModalForm from "./components/modal-form/modal-form";
 
-function App() {
+const App = () => {
+  const [isOpen, setOpen] = useState(true);
+
+  const handleModalOpen = () => {
+    setOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={handleModalOpen}>Open form</button>
+
+      {isOpen ? (
+        <Portal>
+          <ModalForm handleModalClose={handleModalClose} />
+        </Portal>
+      ) : null}
+    </>
   );
-}
+};
 
 export default App;

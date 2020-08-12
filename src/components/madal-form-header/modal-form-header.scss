@@ -1,0 +1,23 @@
+  @import '../../module';
+
+  .modal-form__header {
+      @include flex-constructor(row nowrap, space-between, center);
+      @include dodger-blue(16px, 600);
+      border-radius: 5px 5px 0 0;
+      padding: 15px 10px;
+
+      &>* {
+          white-space: nowrap;
+      }
+
+      .modal-form__header__text {
+          font-size: inherit;
+          font-weight: inherit;
+          margin: 0;
+          padding: 0;
+      }
+
+      .modal-form__header__button-container {
+          margin-left: 30px;
+      }
+  }

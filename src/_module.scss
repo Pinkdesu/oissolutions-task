@@ -1,0 +1,26 @@
+@mixin flex-constructor ($flow: row nowrap, $jusCont: flex-start, $alItems: stretch, $alContent:stretch) {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    flex-flow: $flow;
+    justify-content: $jusCont;
+    align-items: $alItems;
+    align-content: $alContent;
+}
+
+@mixin cursor-pointer() {
+    cursor: default;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin dodger-blue($fontSize: 12px, $fontWeight: 400) {
+    background-color: #1E90FF;
+    color: #fff;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
