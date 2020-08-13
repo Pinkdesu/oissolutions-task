@@ -10,11 +10,11 @@
     align-content: $alContent;
 }
 
-@mixin cursor-pointer() {
+@mixin cursor($cursor: pointer) {
     cursor: default;
 
     &:hover {
-        cursor: pointer;
+        cursor: $cursor;
     }
 }
 
@@ -24,8 +24,8 @@
     font-weight: $fontWeight;
 }
 
-.dodger-blue {
-    background-color: #1E90FF;
+@mixin dodger-blue($opacity: 1) {
+    background-color: rgba(#1E90FF, $opacity);
 }
 
 

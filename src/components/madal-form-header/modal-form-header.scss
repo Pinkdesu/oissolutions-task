@@ -2,8 +2,8 @@
 
   .modal-form__header {
       @include flex-constructor(row nowrap, space-between, center);
-      @extend .dodger-blue,
-      .unselectable;
+      @include dodger-blue();
+      @extend .unselectable;
       border-radius: 5px 5px 0 0;
       padding: 15px 10px;
 
@@ -18,6 +18,20 @@
       }
 
       .modal-form__header__button-container {
-          margin-left: 30px;
+          margin-left: 20px;
+
+          &>svg {
+              @include cursor();
+              width: 16px;
+              height: 16px;
+              margin-left: 10px;
+              fill: rgba($color: #fff, $alpha: 0.7);
+              stroke: rgba($color: #fff, $alpha: 0.7);
+
+              &:hover {
+                  fill: rgba($color: #fff, $alpha: 1);
+                  stroke: rgba($color: #fff, $alpha: 1);
+              }
+          }
       }
   }

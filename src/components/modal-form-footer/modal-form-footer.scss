@@ -1,0 +1,18 @@
+  @import '../../module';
+
+  .modal-form__footer {
+      @include flex-constructor(row nowrap, space-between, center);
+      @include dodger-blue(0.1);
+      padding: 10px;
+
+      .modal-form__footer__text {
+          @include text-style(14px, 500);
+          color: rgba(255, 0, 0, 0.6);
+          white-space: nowrap;
+      }
+
+      .modal-form__footer__button {
+          @include cursor();
+          padding: 5px 10px;
+      }
+  }

@@ -5,11 +5,11 @@
     font-family: Arial,
         Helvetica,
         sans-serif;
-    height: 500px;
     background-color: #fff;
     padding: 0;
     border: none;
     border-radius: 5px;
+    min-width: 630px;
 
     .modal-form__content {
         @include flex-constructor(column nowrap, flex-start);
