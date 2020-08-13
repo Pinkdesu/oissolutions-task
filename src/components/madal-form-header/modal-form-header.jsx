@@ -4,10 +4,15 @@ import { Xicon, ExpandIcon } from "../../svg/svg-icons";
 import "./modal-form-header.scss";
 
 const ModalFormHeader = ({ handleModalClose }) => {
+  const nowDate = new Date().toLocaleString("ru", {
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div className="modal-form__header">
       <h1 className="modal-form__header__text">
-        Согласование изменений параметров работы скважин на 12 августа
+        Согласование изменений параметров работы скважин на {nowDate}
       </h1>
       <div className="modal-form__header__button-container">
         <ExpandIcon />

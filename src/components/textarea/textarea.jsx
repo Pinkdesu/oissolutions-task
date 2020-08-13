@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./textarea.scss";
 
-const Textarea = () => {
-  return <textarea className="modal-form__content__fieldset__textarea" />;
+const Textarea = ({ className }) => {
+  return <textarea className={className} />;
 };
 
-Textarea.propTypes = {};
+Textarea.propTypes = {
+  className: PropTypes.string,
+};
 
-Textarea.defaultProps = {};
+Textarea.defaultProps = {
+  className: "",
+};
 
 export default Textarea;

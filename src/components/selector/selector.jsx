@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
-import "./selector.scss";
 
-const Selector = ({ data }) => {
+const Selector = ({ data, className }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = useCallback((e) => {
@@ -11,11 +10,7 @@ const Selector = ({ data }) => {
   }, []);
 
   return (
-    <select
-      value={value}
-      onChange={handleChange}
-      className="modal-form__content__fieldset__selector"
-    >
+    <select value={value} onChange={handleChange} className={className}>
       <option value={0}></option>
       {data.map((item, index) => (
         <option key={index} value={item.id}>
@@ -33,10 +28,12 @@ Selector.propTypes = {
       value: PropTypes.string,
     })
   ),
+  className: PropTypes.string,
 };
 
 Selector.defaultProps = {
   data: [],
+  className: "",
 };
 
 export default Selector;
