@@ -1,16 +1,22 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-const Selector = ({ data, className }) => {
-  const [value, setValue] = useState(0);
+const Selector = ({ data, focus, value, onChange, disabled, className }) => {
+  const selectRef = useRef(null);
 
-  const handleChange = useCallback((e) => {
-    const currentValue = e.target.value;
-    setValue(currentValue);
+  useEffect(() => {
+    if (focus) selectRef.current.focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <select value={value} onChange={handleChange} className={className}>
+    <select
+      ref={selectRef}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+      className={className}
+    >
       <option value={0}></option>
       {data.map((item, index) => (
         <option key={index} value={item.id}>
@@ -28,11 +34,17 @@ Selector.propTypes = {
       value: PropTypes.string,
     })
   ),
+  disabled: PropTypes.bool,
+  value: PropTypes.number,
+  onChange: PropTypes.func,
   className: PropTypes.string,
 };
 
 Selector.defaultProps = {
   data: [],
+  disabled: false,
+  value: 0,
+  onChange: () => {},
   className: "",
 };
 
