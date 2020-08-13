@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import "./selector.scss";
 
-const Selector = () => {
+const Selector = ({ data }) => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = useCallback((e) => {
+    const currentValue = e.target.value;
+    setValue(currentValue);
+  }, []);
+
   return (
-    <select className="modal-form__content__fieldset__selector">
-      <option></option>
-      <option>2</option>
-      <option>3</option>
+    <select
+      value={value}
+      onChange={handleChange}
+      className="modal-form__content__fieldset__selector"
+    >
+      <option value={0}></option>
+      {data.map((item, index) => (
+        <option key={index} value={item.id}>
+          {item.value}
+        </option>
+      ))}
     </select>
   );
 };
 
-Selector.propTypes = {};
+Selector.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      value: PropTypes.string,
+    })
+  ),
+};
 
-Selector.defaultProps = {};
+Selector.defaultProps = {
+  data: [],
+};
 
 export default Selector;

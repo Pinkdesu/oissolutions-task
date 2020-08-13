@@ -11,7 +11,7 @@ const ModalFormHeader = ({ handleModalClose }) => {
       </h1>
       <div className="modal-form__header__button-container">
         <ExpandIcon />
-        <Xicon />
+        <Xicon onClick={handleModalClose} />
       </div>
     </div>
   );

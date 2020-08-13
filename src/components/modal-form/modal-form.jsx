@@ -6,16 +6,21 @@ import ModalFormTable from "../modal-form-table/modal-form-table";
 import ModalFormFooter from "../modal-form-footer/modal-form-footer";
 import Selector from "../selector/selector";
 import Textarea from "../textarea/textarea";
+import * as initialData from "../../constants";
 import "./modal-form.scss";
 
 const ModalForm = ({ handleModalClose }) => {
+  const { name: fieldName, wellName } = initialData.OIL_FIELD;
+
   return (
     <dialog className="modal-form">
       <ModalFormHeader handleModalClose={handleModalClose} />
       <div className="modal-form__content">
-        <h2 className="modal-form__content__well-text">41 / Ичединское</h2>
+        <h2 className="modal-form__content__well-text">
+          {fieldName} / {wellName}
+        </h2>
         <ModalFormFieldset legendText="Причина отклонения">
-          <Selector />
+          <Selector data={initialData.REFUSAL_REASONS} />
         </ModalFormFieldset>
         <ModalFormTable />
         <ModalFormFieldset legendText="Мероприятия по возврату снижений">
