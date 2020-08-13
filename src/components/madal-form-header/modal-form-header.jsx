@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Xicon, ExpandIcon } from "../../svg/svg-icons";
 import "./modal-form-header.scss";
 
-const ModalFormHeader = ({ handleModalClose }) => {
+const ModalFormHeader = ({ closeForm, toggleFullScreen }) => {
   const nowDate = new Date().toLocaleString("ru", {
     month: "long",
     day: "numeric",
@@ -15,19 +15,19 @@ const ModalFormHeader = ({ handleModalClose }) => {
         Согласование изменений параметров работы скважин на {nowDate}
       </h1>
       <div className="modal-form__header__button-container">
-        <ExpandIcon />
-        <Xicon onClick={handleModalClose} />
+        <ExpandIcon onClick={toggleFullScreen} />
+        <Xicon onClick={closeForm} />
       </div>
     </div>
   );
 };
 
 ModalFormHeader.propTypes = {
-  handleModalClose: PropTypes.func.isRequired,
+  closeForm: PropTypes.func.isRequired,
 };
 
 ModalFormHeader.defaultProps = {
-  handleModalClose: () => {},
+  closeForm: () => {},
 };
 
 export default ModalFormHeader;

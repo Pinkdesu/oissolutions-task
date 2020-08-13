@@ -14,15 +14,17 @@ const App = () => {
   };
 
   return (
-    <>
-      <button onClick={handleModalOpen}>Open form</button>
+    <div className="container">
+      <button className="main-button" onClick={handleModalOpen}>
+        Open form
+      </button>
 
       {isOpen ? (
         <Portal>
           <ModalForm handleModalClose={handleModalClose} />
         </Portal>
       ) : null}
-    </>
+    </div>
   );
 };
 

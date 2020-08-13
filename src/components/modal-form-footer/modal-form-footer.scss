@@ -6,8 +6,7 @@
       padding: 10px;
 
       .modal-form__footer__text {
-          @include text-style(14px, 500);
-          color: rgba(255, 0, 0, 0.6);
+          @include text-style(14px, 500, rgba(255, 0, 0, 0.6));
           white-space: nowrap;
       }
 

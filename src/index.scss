@@ -21,6 +21,16 @@
       overflow-y: hidden;
     }
 
+    .main-button {
+      @include text-style(22px, 700);
+      padding: 20px 30px;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 20%;
+    }
+
     .background-wrapper {
       @include flex-constructor(row nowrap, center, center);
       width: 100%;

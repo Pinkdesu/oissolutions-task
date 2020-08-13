@@ -18,6 +18,45 @@
     border: 1px solid rgba($color: #000000, $alpha: 0.4);
   }
 
+  & tr {
+    &:hover {
+      @include dodger-blue(0.1);
+    }
+  }
+
+  %tooltip {
+    @include text-style();
+    position: absolute;
+    background-color: #e3f2fd;
+    margin: 15px 0 0 20px;
+    border: 1px solid rgba(#000000, 0.6);
+    padding: 5px 10px;
+  }
+
+  .modal-form__content__table__param-tooltip_denied {
+    @include text-style($color: rgba(255, 0, 0, 0.6));
+    @include cursor();
+
+    &:hover {
+      &::after {
+        @extend %tooltip;
+        content: 'Отклонено';
+      }
+    }
+  }
+
+  .modal-form__content__table__param-tooltip_received {
+    @include text-style($color: rgba(0, 255, 0, 0.6));
+    @include cursor();
+
+    &:hover {
+      &::after {
+        @extend %tooltip;
+        content: 'Согласовано';
+      }
+    }
+  }
+
   .modal-form__content__table__input-td {
     padding: 0;
 

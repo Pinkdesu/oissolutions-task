@@ -11,10 +11,15 @@ import * as initialData from "../../constants";
 import "./modal-form.scss";
 
 const ModalForm = ({ handleModalClose }) => {
+  const [isFullScreen, setFullScreen] = useState(false);
   const [isFormDisabled, disableForm] = useState(false);
   const [isValid, setValid] = useState(true);
   const [state, dispatch] = useReducer(indexReducer, initialState);
   const { name: fieldName, wellName } = initialData.OIL_FIELD;
+
+  const toggleFullScreen = () => {
+    setFullScreen(!isFullScreen);
+  };
 
   const handleSelectChange = (e) => {
     const currentValue = e.target.value;
@@ -46,8 +51,11 @@ const ModalForm = ({ handleModalClose }) => {
 
   return (
     <ContextApp.Provider value={{ dispatch, state }}>
-      <dialog className="modal-form">
-        <ModalFormHeader handleModalClose={handleModalClose} />
+      <dialog className={isFullScreen ? "modal-form_full" : "modal-form"}>
+        <ModalFormHeader
+          closeForm={handleModalClose}
+          toggleFullScreen={toggleFullScreen}
+        />
         <div className="modal-form__content">
           <h2 className="modal-form__content__well-text">
             {fieldName} / {wellName}

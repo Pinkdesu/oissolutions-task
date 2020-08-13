@@ -30,6 +30,12 @@
     }
 }
 
+.modal-form_full {
+    @extend .modal-form;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
 .modal-form__content__fieldset__textarea {
     outline: none;
     resize: none;
